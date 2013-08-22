@@ -3,7 +3,8 @@ Simple Scala-like Option
 
 This is a simple implementation of a Scala-like Option/Some/None hierarchy. 
 
-*Use* 
+Use
+---
 To get an instance of Option<T>, call it like this:
 
     Option<T> opt = Option.option(sometingThatMightBeNull);
