@@ -26,6 +26,7 @@ package com.joeygibson.option;
 
 import static com.joeygibson.option.Option.option;
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.*;
 
@@ -72,5 +73,20 @@ public class OptionTest
         assertThat(foo, notNullValue());
 
         foo.get();
+    }
+
+    @Test
+    public void testIsDefined() throws Exception {
+        Option<String> some = option("foo");
+        Option<String> none = option(null);
+
+        assertThat(some, notNullValue());
+        assertThat(none, notNullValue());
+
+        assertThat(some.isDefined(), is(true));
+        assertThat(some.isEmpty(), is(false));
+
+        assertThat(none.isDefined(), is(false));
+        assertThat(none.isEmpty(), is(true));
     }
 }
